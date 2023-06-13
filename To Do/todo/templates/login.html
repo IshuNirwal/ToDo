@@ -1,0 +1,40 @@
+ {% extends 'base.html' %}
+
+ {% block content %}
+
+<!DOCTYPE html>
+{% load static%}
+<link rel="stylesheet" href="{% static 'signup.css'%}">
+<html>
+<head>
+	<title>Slide Navbar</title>
+	<link rel="stylesheet" type="text/css" href="slide navbar style.css">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+
+
+</head><br><br>
+<body>
+	<div class="main">  	
+		<input type="checkbox" id="chk" aria-hidden="true">
+
+			<div class="login">
+				<form method='POST'>
+                    {%csrf_token%}
+					<label for="chk" aria-hidden="true">Login</label>
+					<input type="text" name="username" placeholder="username" required="">
+					<input type="password" name="password" placeholder="Password" required="">
+					<button>Login</button>
+				</form>
+                <a style="color:white;margin-left:65px;" href="/signup">We don't have an account Signup </a>
+                {% for message in messages %}
+
+                <p style="color:white; margin-left:65px;; font-style:bold;">{{message}}</p>
+             
+                {% endfor %}
+			</div>
+           
+	</div>
+
+</body>
+</html>
+{%endblock%}
